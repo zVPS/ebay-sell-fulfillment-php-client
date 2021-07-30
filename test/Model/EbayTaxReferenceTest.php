@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Fulfillment\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type describes the VAT tax details. The eBay VAT tax type and the eBay VAT identifier number will be returned if a VAT tax is applicable for the order. &lt;p&gt; &lt;span class&#x3D;\&quot;tablenote\&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; On January 31, 2022, the &lt;strong&gt;orders.fulfillmentStartInstructions.shippingStep.shipTo.contactAddress.addressLine2&lt;/strong&gt; will stop being used to return VAT information, so developers should make sure they integrate with the new fields before that time.&lt;/span&gt;&lt;/p&gt;
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Fulfillment
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */

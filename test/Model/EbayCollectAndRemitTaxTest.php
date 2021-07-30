@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Ebay\Sell
+ * @package  Ebay\Sell\Fulfillment
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Please update the test case below to test the model.
  */
 
-namespace Ebay\Sell\Test\Model;
+namespace Ebay\Sell\Fulfillment\Test\Model;
 
 use PHPUnit\Framework\TestCase;
 
@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @category    Class
  * @description This type contains information about the type and amount of tax that eBay will collect and remit to the state, province, country, or other taxing authority in the buyer&#39;s location, as required by that taxing authority. &#39;Collect and Remit&#39; tax includes US state-mandated sales tax, &#39;Goods and Services&#39; tax in Australia or New Zealand, VAT collected for the UK and EU countries.
- * @package     Ebay\Sell
+ * @package     Ebay\Sell\Fulfillment
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
