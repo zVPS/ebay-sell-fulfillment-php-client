@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class Order implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -274,26 +274,26 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['buyer'] = $data['buyer'] ?? null;
-        $this->container['buyer_checkout_notes'] = $data['buyer_checkout_notes'] ?? null;
-        $this->container['cancel_status'] = $data['cancel_status'] ?? null;
-        $this->container['creation_date'] = $data['creation_date'] ?? null;
-        $this->container['ebay_collect_and_remit_tax'] = $data['ebay_collect_and_remit_tax'] ?? null;
-        $this->container['fulfillment_hrefs'] = $data['fulfillment_hrefs'] ?? null;
-        $this->container['fulfillment_start_instructions'] = $data['fulfillment_start_instructions'] ?? null;
-        $this->container['last_modified_date'] = $data['last_modified_date'] ?? null;
-        $this->container['legacy_order_id'] = $data['legacy_order_id'] ?? null;
-        $this->container['line_items'] = $data['line_items'] ?? null;
-        $this->container['order_fulfillment_status'] = $data['order_fulfillment_status'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['order_payment_status'] = $data['order_payment_status'] ?? null;
-        $this->container['payment_summary'] = $data['payment_summary'] ?? null;
-        $this->container['pricing_summary'] = $data['pricing_summary'] ?? null;
-        $this->container['program'] = $data['program'] ?? null;
-        $this->container['sales_record_reference'] = $data['sales_record_reference'] ?? null;
-        $this->container['seller_id'] = $data['seller_id'] ?? null;
-        $this->container['total_fee_basis_amount'] = $data['total_fee_basis_amount'] ?? null;
-        $this->container['total_marketplace_fee'] = $data['total_marketplace_fee'] ?? null;
+        $this->container['buyer'] = isset($data['buyer']) ? $data['buyer'] : null;
+        $this->container['buyer_checkout_notes'] = isset($data['buyer_checkout_notes']) ? $data['buyer_checkout_notes'] : null;
+        $this->container['cancel_status'] = isset($data['cancel_status']) ? $data['cancel_status'] : null;
+        $this->container['creation_date'] = isset($data['creation_date']) ? $data['creation_date'] : null;
+        $this->container['ebay_collect_and_remit_tax'] = isset($data['ebay_collect_and_remit_tax']) ? $data['ebay_collect_and_remit_tax'] : null;
+        $this->container['fulfillment_hrefs'] = isset($data['fulfillment_hrefs']) ? $data['fulfillment_hrefs'] : null;
+        $this->container['fulfillment_start_instructions'] = isset($data['fulfillment_start_instructions']) ? $data['fulfillment_start_instructions'] : null;
+        $this->container['last_modified_date'] = isset($data['last_modified_date']) ? $data['last_modified_date'] : null;
+        $this->container['legacy_order_id'] = isset($data['legacy_order_id']) ? $data['legacy_order_id'] : null;
+        $this->container['line_items'] = isset($data['line_items']) ? $data['line_items'] : null;
+        $this->container['order_fulfillment_status'] = isset($data['order_fulfillment_status']) ? $data['order_fulfillment_status'] : null;
+        $this->container['order_id'] = isset($data['order_id']) ? $data['order_id'] : null;
+        $this->container['order_payment_status'] = isset($data['order_payment_status']) ? $data['order_payment_status'] : null;
+        $this->container['payment_summary'] = isset($data['payment_summary']) ? $data['payment_summary'] : null;
+        $this->container['pricing_summary'] = isset($data['pricing_summary']) ? $data['pricing_summary'] : null;
+        $this->container['program'] = isset($data['program']) ? $data['program'] : null;
+        $this->container['sales_record_reference'] = isset($data['sales_record_reference']) ? $data['sales_record_reference'] : null;
+        $this->container['seller_id'] = isset($data['seller_id']) ? $data['seller_id'] : null;
+        $this->container['total_fee_basis_amount'] = isset($data['total_fee_basis_amount']) ? $data['total_fee_basis_amount'] : null;
+        $this->container['total_marketplace_fee'] = isset($data['total_marketplace_fee']) ? $data['total_marketplace_fee'] : null;
     }
 
     /**
@@ -820,7 +820,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

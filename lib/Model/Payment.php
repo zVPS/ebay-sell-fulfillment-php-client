@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['payment_date'] = $data['payment_date'] ?? null;
-        $this->container['payment_holds'] = $data['payment_holds'] ?? null;
-        $this->container['payment_method'] = $data['payment_method'] ?? null;
-        $this->container['payment_reference_id'] = $data['payment_reference_id'] ?? null;
-        $this->container['payment_status'] = $data['payment_status'] ?? null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['payment_date'] = isset($data['payment_date']) ? $data['payment_date'] : null;
+        $this->container['payment_holds'] = isset($data['payment_holds']) ? $data['payment_holds'] : null;
+        $this->container['payment_method'] = isset($data['payment_method']) ? $data['payment_method'] : null;
+        $this->container['payment_reference_id'] = isset($data['payment_reference_id']) ? $data['payment_reference_id'] : null;
+        $this->container['payment_status'] = isset($data['payment_status']) ? $data['payment_status'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class Payment implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

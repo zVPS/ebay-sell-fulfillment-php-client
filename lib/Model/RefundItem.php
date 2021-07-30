@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class RefundItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class RefundItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['refund_amount'] = $data['refund_amount'] ?? null;
-        $this->container['line_item_id'] = $data['line_item_id'] ?? null;
-        $this->container['legacy_reference'] = $data['legacy_reference'] ?? null;
+        $this->container['refund_amount'] = isset($data['refund_amount']) ? $data['refund_amount'] : null;
+        $this->container['line_item_id'] = isset($data['line_item_id']) ? $data['line_item_id'] : null;
+        $this->container['legacy_reference'] = isset($data['legacy_reference']) ? $data['legacy_reference'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class RefundItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

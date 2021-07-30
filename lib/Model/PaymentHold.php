@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class PaymentHold implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class PaymentHold implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['expected_release_date'] = $data['expected_release_date'] ?? null;
-        $this->container['hold_amount'] = $data['hold_amount'] ?? null;
-        $this->container['hold_reason'] = $data['hold_reason'] ?? null;
-        $this->container['hold_state'] = $data['hold_state'] ?? null;
-        $this->container['release_date'] = $data['release_date'] ?? null;
-        $this->container['seller_actions_to_release'] = $data['seller_actions_to_release'] ?? null;
+        $this->container['expected_release_date'] = isset($data['expected_release_date']) ? $data['expected_release_date'] : null;
+        $this->container['hold_amount'] = isset($data['hold_amount']) ? $data['hold_amount'] : null;
+        $this->container['hold_reason'] = isset($data['hold_reason']) ? $data['hold_reason'] : null;
+        $this->container['hold_state'] = isset($data['hold_state']) ? $data['hold_state'] : null;
+        $this->container['release_date'] = isset($data['release_date']) ? $data['release_date'] : null;
+        $this->container['seller_actions_to_release'] = isset($data['seller_actions_to_release']) ? $data['seller_actions_to_release'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class PaymentHold implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

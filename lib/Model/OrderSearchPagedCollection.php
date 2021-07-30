@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class OrderSearchPagedCollection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -214,14 +214,14 @@ class OrderSearchPagedCollection implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(array $data = null)
     {
-        $this->container['href'] = $data['href'] ?? null;
-        $this->container['limit'] = $data['limit'] ?? null;
-        $this->container['next'] = $data['next'] ?? null;
-        $this->container['offset'] = $data['offset'] ?? null;
-        $this->container['orders'] = $data['orders'] ?? null;
-        $this->container['prev'] = $data['prev'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['href'] = isset($data['href']) ? $data['href'] : null;
+        $this->container['limit'] = isset($data['limit']) ? $data['limit'] : null;
+        $this->container['next'] = isset($data['next']) ? $data['next'] : null;
+        $this->container['offset'] = isset($data['offset']) ? $data['offset'] : null;
+        $this->container['orders'] = isset($data['orders']) ? $data['orders'] : null;
+        $this->container['prev'] = isset($data['prev']) ? $data['prev'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -460,7 +460,7 @@ class OrderSearchPagedCollection implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

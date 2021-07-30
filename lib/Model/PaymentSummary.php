@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class PaymentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class PaymentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['payments'] = $data['payments'] ?? null;
-        $this->container['refunds'] = $data['refunds'] ?? null;
-        $this->container['total_due_seller'] = $data['total_due_seller'] ?? null;
+        $this->container['payments'] = isset($data['payments']) ? $data['payments'] : null;
+        $this->container['refunds'] = isset($data['refunds']) ? $data['refunds'] : null;
+        $this->container['total_due_seller'] = isset($data['total_due_seller']) ? $data['total_due_seller'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class PaymentSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['ebay_reference'] = $data['ebay_reference'] ?? null;
-        $this->container['tax_type'] = $data['tax_type'] ?? null;
-        $this->container['collection_method'] = $data['collection_method'] ?? null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['ebay_reference'] = isset($data['ebay_reference']) ? $data['ebay_reference'] : null;
+        $this->container['tax_type'] = isset($data['tax_type']) ? $data['tax_type'] : null;
+        $this->container['collection_method'] = isset($data['collection_method']) ? $data['collection_method'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class EbayCollectAndRemitTax implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

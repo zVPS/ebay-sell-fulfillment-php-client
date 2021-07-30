@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class LineItem implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -284,28 +284,28 @@ class LineItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['applied_promotions'] = $data['applied_promotions'] ?? null;
-        $this->container['delivery_cost'] = $data['delivery_cost'] ?? null;
-        $this->container['discounted_line_item_cost'] = $data['discounted_line_item_cost'] ?? null;
-        $this->container['ebay_collect_and_remit_taxes'] = $data['ebay_collect_and_remit_taxes'] ?? null;
-        $this->container['gift_details'] = $data['gift_details'] ?? null;
-        $this->container['item_location'] = $data['item_location'] ?? null;
-        $this->container['legacy_item_id'] = $data['legacy_item_id'] ?? null;
-        $this->container['legacy_variation_id'] = $data['legacy_variation_id'] ?? null;
-        $this->container['line_item_cost'] = $data['line_item_cost'] ?? null;
-        $this->container['line_item_fulfillment_instructions'] = $data['line_item_fulfillment_instructions'] ?? null;
-        $this->container['line_item_fulfillment_status'] = $data['line_item_fulfillment_status'] ?? null;
-        $this->container['line_item_id'] = $data['line_item_id'] ?? null;
-        $this->container['listing_marketplace_id'] = $data['listing_marketplace_id'] ?? null;
-        $this->container['properties'] = $data['properties'] ?? null;
-        $this->container['purchase_marketplace_id'] = $data['purchase_marketplace_id'] ?? null;
-        $this->container['quantity'] = $data['quantity'] ?? null;
-        $this->container['refunds'] = $data['refunds'] ?? null;
-        $this->container['sku'] = $data['sku'] ?? null;
-        $this->container['sold_format'] = $data['sold_format'] ?? null;
-        $this->container['taxes'] = $data['taxes'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
+        $this->container['applied_promotions'] = isset($data['applied_promotions']) ? $data['applied_promotions'] : null;
+        $this->container['delivery_cost'] = isset($data['delivery_cost']) ? $data['delivery_cost'] : null;
+        $this->container['discounted_line_item_cost'] = isset($data['discounted_line_item_cost']) ? $data['discounted_line_item_cost'] : null;
+        $this->container['ebay_collect_and_remit_taxes'] = isset($data['ebay_collect_and_remit_taxes']) ? $data['ebay_collect_and_remit_taxes'] : null;
+        $this->container['gift_details'] = isset($data['gift_details']) ? $data['gift_details'] : null;
+        $this->container['item_location'] = isset($data['item_location']) ? $data['item_location'] : null;
+        $this->container['legacy_item_id'] = isset($data['legacy_item_id']) ? $data['legacy_item_id'] : null;
+        $this->container['legacy_variation_id'] = isset($data['legacy_variation_id']) ? $data['legacy_variation_id'] : null;
+        $this->container['line_item_cost'] = isset($data['line_item_cost']) ? $data['line_item_cost'] : null;
+        $this->container['line_item_fulfillment_instructions'] = isset($data['line_item_fulfillment_instructions']) ? $data['line_item_fulfillment_instructions'] : null;
+        $this->container['line_item_fulfillment_status'] = isset($data['line_item_fulfillment_status']) ? $data['line_item_fulfillment_status'] : null;
+        $this->container['line_item_id'] = isset($data['line_item_id']) ? $data['line_item_id'] : null;
+        $this->container['listing_marketplace_id'] = isset($data['listing_marketplace_id']) ? $data['listing_marketplace_id'] : null;
+        $this->container['properties'] = isset($data['properties']) ? $data['properties'] : null;
+        $this->container['purchase_marketplace_id'] = isset($data['purchase_marketplace_id']) ? $data['purchase_marketplace_id'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
+        $this->container['refunds'] = isset($data['refunds']) ? $data['refunds'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['sold_format'] = isset($data['sold_format']) ? $data['sold_format'] : null;
+        $this->container['taxes'] = isset($data['taxes']) ? $data['taxes'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -880,7 +880,7 @@ class LineItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

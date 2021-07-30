@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class LineItemReference implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class LineItemReference implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(array $data = null)
     {
-        $this->container['line_item_id'] = $data['line_item_id'] ?? null;
-        $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['line_item_id'] = isset($data['line_item_id']) ? $data['line_item_id'] : null;
+        $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class LineItemReference implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

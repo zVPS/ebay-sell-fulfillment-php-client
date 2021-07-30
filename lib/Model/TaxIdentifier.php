@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class TaxIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['taxpayer_id'] = $data['taxpayer_id'] ?? null;
-        $this->container['tax_identifier_type'] = $data['tax_identifier_type'] ?? null;
-        $this->container['issuing_country'] = $data['issuing_country'] ?? null;
+        $this->container['taxpayer_id'] = isset($data['taxpayer_id']) ? $data['taxpayer_id'] : null;
+        $this->container['tax_identifier_type'] = isset($data['tax_identifier_type']) ? $data['tax_identifier_type'] : null;
+        $this->container['issuing_country'] = isset($data['issuing_country']) ? $data['issuing_country'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class TaxIdentifier implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

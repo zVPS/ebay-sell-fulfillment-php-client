@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class EbayFulfillmentProgram implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -179,7 +179,7 @@ class EbayFulfillmentProgram implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['fulfilled_by'] = $data['fulfilled_by'] ?? null;
+        $this->container['fulfilled_by'] = isset($data['fulfilled_by']) ? $data['fulfilled_by'] : null;
     }
 
     /**
@@ -250,7 +250,7 @@ class EbayFulfillmentProgram implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

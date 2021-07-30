@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class LineItemFulfillmentInstructions implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class LineItemFulfillmentInstructions implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->container['guaranteed_delivery'] = $data['guaranteed_delivery'] ?? null;
-        $this->container['max_estimated_delivery_date'] = $data['max_estimated_delivery_date'] ?? null;
-        $this->container['min_estimated_delivery_date'] = $data['min_estimated_delivery_date'] ?? null;
-        $this->container['ship_by_date'] = $data['ship_by_date'] ?? null;
+        $this->container['guaranteed_delivery'] = isset($data['guaranteed_delivery']) ? $data['guaranteed_delivery'] : null;
+        $this->container['max_estimated_delivery_date'] = isset($data['max_estimated_delivery_date']) ? $data['max_estimated_delivery_date'] : null;
+        $this->container['min_estimated_delivery_date'] = isset($data['min_estimated_delivery_date']) ? $data['min_estimated_delivery_date'] : null;
+        $this->container['ship_by_date'] = isset($data['ship_by_date']) ? $data['ship_by_date'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class LineItemFulfillmentInstructions implements ModelInterface, ArrayAccess, \J
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

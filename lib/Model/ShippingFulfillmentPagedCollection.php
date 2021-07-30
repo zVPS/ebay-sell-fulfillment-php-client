@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      */
     public function __construct(array $data = null)
     {
-        $this->container['fulfillments'] = $data['fulfillments'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
-        $this->container['warnings'] = $data['warnings'] ?? null;
+        $this->container['fulfillments'] = isset($data['fulfillments']) ? $data['fulfillments'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class ShippingFulfillmentPagedCollection implements ModelInterface, ArrayAccess,
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

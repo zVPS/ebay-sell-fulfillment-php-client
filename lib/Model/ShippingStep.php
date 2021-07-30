@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class ShippingStep implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -194,10 +194,10 @@ class ShippingStep implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['shipping_carrier_code'] = $data['shipping_carrier_code'] ?? null;
-        $this->container['shipping_service_code'] = $data['shipping_service_code'] ?? null;
-        $this->container['ship_to'] = $data['ship_to'] ?? null;
-        $this->container['ship_to_reference_id'] = $data['ship_to_reference_id'] ?? null;
+        $this->container['shipping_carrier_code'] = isset($data['shipping_carrier_code']) ? $data['shipping_carrier_code'] : null;
+        $this->container['shipping_service_code'] = isset($data['shipping_service_code']) ? $data['shipping_service_code'] : null;
+        $this->container['ship_to'] = isset($data['ship_to']) ? $data['ship_to'] : null;
+        $this->container['ship_to_reference_id'] = isset($data['ship_to_reference_id']) ? $data['ship_to_reference_id'] : null;
     }
 
     /**
@@ -340,7 +340,7 @@ class ShippingStep implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

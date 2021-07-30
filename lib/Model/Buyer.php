@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['tax_address'] = $data['tax_address'] ?? null;
-        $this->container['tax_identifier'] = $data['tax_identifier'] ?? null;
-        $this->container['username'] = $data['username'] ?? null;
+        $this->container['tax_address'] = isset($data['tax_address']) ? $data['tax_address'] : null;
+        $this->container['tax_identifier'] = isset($data['tax_identifier']) ? $data['tax_identifier'] : null;
+        $this->container['username'] = isset($data['username']) ? $data['username'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class Buyer implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

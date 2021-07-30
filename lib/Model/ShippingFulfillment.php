@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class ShippingFulfillment implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class ShippingFulfillment implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(array $data = null)
     {
-        $this->container['fulfillment_id'] = $data['fulfillment_id'] ?? null;
-        $this->container['line_items'] = $data['line_items'] ?? null;
-        $this->container['shipment_tracking_number'] = $data['shipment_tracking_number'] ?? null;
-        $this->container['shipped_date'] = $data['shipped_date'] ?? null;
-        $this->container['shipping_carrier_code'] = $data['shipping_carrier_code'] ?? null;
+        $this->container['fulfillment_id'] = isset($data['fulfillment_id']) ? $data['fulfillment_id'] : null;
+        $this->container['line_items'] = isset($data['line_items']) ? $data['line_items'] : null;
+        $this->container['shipment_tracking_number'] = isset($data['shipment_tracking_number']) ? $data['shipment_tracking_number'] : null;
+        $this->container['shipped_date'] = isset($data['shipped_date']) ? $data['shipped_date'] : null;
+        $this->container['shipping_carrier_code'] = isset($data['shipping_carrier_code']) ? $data['shipping_carrier_code'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class ShippingFulfillment implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class AppliedPromotion implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class AppliedPromotion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['discount_amount'] = $data['discount_amount'] ?? null;
-        $this->container['promotion_id'] = $data['promotion_id'] ?? null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['discount_amount'] = isset($data['discount_amount']) ? $data['discount_amount'] : null;
+        $this->container['promotion_id'] = isset($data['promotion_id']) ? $data['promotion_id'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class AppliedPromotion implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

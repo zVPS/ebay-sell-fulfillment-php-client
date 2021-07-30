@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class OrderRefund implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class OrderRefund implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['amount'] = $data['amount'] ?? null;
-        $this->container['refund_date'] = $data['refund_date'] ?? null;
-        $this->container['refund_id'] = $data['refund_id'] ?? null;
-        $this->container['refund_reference_id'] = $data['refund_reference_id'] ?? null;
-        $this->container['refund_status'] = $data['refund_status'] ?? null;
+        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['refund_date'] = isset($data['refund_date']) ? $data['refund_date'] : null;
+        $this->container['refund_id'] = isset($data['refund_id']) ? $data['refund_id'] : null;
+        $this->container['refund_reference_id'] = isset($data['refund_reference_id']) ? $data['refund_reference_id'] : null;
+        $this->container['refund_status'] = isset($data['refund_status']) ? $data['refund_status'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class OrderRefund implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

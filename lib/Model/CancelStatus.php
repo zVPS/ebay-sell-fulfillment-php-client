@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class CancelStatus implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class CancelStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancelled_date'] = $data['cancelled_date'] ?? null;
-        $this->container['cancel_requests'] = $data['cancel_requests'] ?? null;
-        $this->container['cancel_state'] = $data['cancel_state'] ?? null;
+        $this->container['cancelled_date'] = isset($data['cancelled_date']) ? $data['cancelled_date'] : null;
+        $this->container['cancel_requests'] = isset($data['cancel_requests']) ? $data['cancel_requests'] : null;
+        $this->container['cancel_state'] = isset($data['cancel_state']) ? $data['cancel_state'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class CancelStatus implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

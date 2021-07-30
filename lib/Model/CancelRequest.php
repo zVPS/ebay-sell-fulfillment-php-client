@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class CancelRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -204,12 +204,12 @@ class CancelRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['cancel_completed_date'] = $data['cancel_completed_date'] ?? null;
-        $this->container['cancel_initiator'] = $data['cancel_initiator'] ?? null;
-        $this->container['cancel_reason'] = $data['cancel_reason'] ?? null;
-        $this->container['cancel_requested_date'] = $data['cancel_requested_date'] ?? null;
-        $this->container['cancel_request_id'] = $data['cancel_request_id'] ?? null;
-        $this->container['cancel_request_state'] = $data['cancel_request_state'] ?? null;
+        $this->container['cancel_completed_date'] = isset($data['cancel_completed_date']) ? $data['cancel_completed_date'] : null;
+        $this->container['cancel_initiator'] = isset($data['cancel_initiator']) ? $data['cancel_initiator'] : null;
+        $this->container['cancel_reason'] = isset($data['cancel_reason']) ? $data['cancel_reason'] : null;
+        $this->container['cancel_requested_date'] = isset($data['cancel_requested_date']) ? $data['cancel_requested_date'] : null;
+        $this->container['cancel_request_id'] = isset($data['cancel_request_id']) ? $data['cancel_request_id'] : null;
+        $this->container['cancel_request_state'] = isset($data['cancel_request_state']) ? $data['cancel_request_state'] : null;
     }
 
     /**
@@ -400,7 +400,7 @@ class CancelRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

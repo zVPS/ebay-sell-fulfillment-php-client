@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class GiftDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class GiftDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['message'] = $data['message'] ?? null;
-        $this->container['recipient_email'] = $data['recipient_email'] ?? null;
-        $this->container['sender_name'] = $data['sender_name'] ?? null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['recipient_email'] = isset($data['recipient_email']) ? $data['recipient_email'] : null;
+        $this->container['sender_name'] = isset($data['sender_name']) ? $data['sender_name'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class GiftDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

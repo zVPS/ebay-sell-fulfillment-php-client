@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class LegacyReference implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class LegacyReference implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['legacy_item_id'] = $data['legacy_item_id'] ?? null;
-        $this->container['legacy_transaction_id'] = $data['legacy_transaction_id'] ?? null;
+        $this->container['legacy_item_id'] = isset($data['legacy_item_id']) ? $data['legacy_item_id'] : null;
+        $this->container['legacy_transaction_id'] = isset($data['legacy_transaction_id']) ? $data['legacy_transaction_id'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class LegacyReference implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class SellerActionsToRelease implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -179,7 +179,7 @@ class SellerActionsToRelease implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(array $data = null)
     {
-        $this->container['seller_action_to_release'] = $data['seller_action_to_release'] ?? null;
+        $this->container['seller_action_to_release'] = isset($data['seller_action_to_release']) ? $data['seller_action_to_release'] : null;
     }
 
     /**
@@ -250,7 +250,7 @@ class SellerActionsToRelease implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

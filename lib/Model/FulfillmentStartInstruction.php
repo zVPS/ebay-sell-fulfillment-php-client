@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -209,13 +209,13 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(array $data = null)
     {
-        $this->container['ebay_supported_fulfillment'] = $data['ebay_supported_fulfillment'] ?? null;
-        $this->container['final_destination_address'] = $data['final_destination_address'] ?? null;
-        $this->container['fulfillment_instructions_type'] = $data['fulfillment_instructions_type'] ?? null;
-        $this->container['max_estimated_delivery_date'] = $data['max_estimated_delivery_date'] ?? null;
-        $this->container['min_estimated_delivery_date'] = $data['min_estimated_delivery_date'] ?? null;
-        $this->container['pickup_step'] = $data['pickup_step'] ?? null;
-        $this->container['shipping_step'] = $data['shipping_step'] ?? null;
+        $this->container['ebay_supported_fulfillment'] = isset($data['ebay_supported_fulfillment']) ? $data['ebay_supported_fulfillment'] : null;
+        $this->container['final_destination_address'] = isset($data['final_destination_address']) ? $data['final_destination_address'] : null;
+        $this->container['fulfillment_instructions_type'] = isset($data['fulfillment_instructions_type']) ? $data['fulfillment_instructions_type'] : null;
+        $this->container['max_estimated_delivery_date'] = isset($data['max_estimated_delivery_date']) ? $data['max_estimated_delivery_date'] : null;
+        $this->container['min_estimated_delivery_date'] = isset($data['min_estimated_delivery_date']) ? $data['min_estimated_delivery_date'] : null;
+        $this->container['pickup_step'] = isset($data['pickup_step']) ? $data['pickup_step'] : null;
+        $this->container['shipping_step'] = isset($data['shipping_step']) ? $data['shipping_step'] : null;
     }
 
     /**
@@ -430,7 +430,7 @@ class FulfillmentStartInstruction implements ModelInterface, ArrayAccess, \JsonS
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

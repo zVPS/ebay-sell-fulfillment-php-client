@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -184,8 +184,8 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(array $data = null)
     {
-        $this->container['outcome_reason'] = $data['outcome_reason'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
+        $this->container['outcome_reason'] = isset($data['outcome_reason']) ? $data['outcome_reason'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -280,7 +280,7 @@ class PostSaleAuthenticationProgram implements ModelInterface, ArrayAccess, \Jso
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

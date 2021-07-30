@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -199,11 +199,11 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_name'] = $data['company_name'] ?? null;
-        $this->container['contact_address'] = $data['contact_address'] ?? null;
-        $this->container['email'] = $data['email'] ?? null;
-        $this->container['full_name'] = $data['full_name'] ?? null;
-        $this->container['primary_phone'] = $data['primary_phone'] ?? null;
+        $this->container['company_name'] = isset($data['company_name']) ? $data['company_name'] : null;
+        $this->container['contact_address'] = isset($data['contact_address']) ? $data['contact_address'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['full_name'] = isset($data['full_name']) ? $data['full_name'] : null;
+        $this->container['primary_phone'] = isset($data['primary_phone']) ? $data['primary_phone'] : null;
     }
 
     /**
@@ -370,7 +370,7 @@ class ExtendedContact implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

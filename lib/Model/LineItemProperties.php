@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class LineItemProperties implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -189,9 +189,9 @@ class LineItemProperties implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(array $data = null)
     {
-        $this->container['buyer_protection'] = $data['buyer_protection'] ?? null;
-        $this->container['from_best_offer'] = $data['from_best_offer'] ?? null;
-        $this->container['sold_via_ad_campaign'] = $data['sold_via_ad_campaign'] ?? null;
+        $this->container['buyer_protection'] = isset($data['buyer_protection']) ? $data['buyer_protection'] : null;
+        $this->container['from_best_offer'] = isset($data['from_best_offer']) ? $data['from_best_offer'] : null;
+        $this->container['sold_via_ad_campaign'] = isset($data['sold_via_ad_campaign']) ? $data['sold_via_ad_campaign'] : null;
     }
 
     /**
@@ -310,7 +310,7 @@ class LineItemProperties implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**

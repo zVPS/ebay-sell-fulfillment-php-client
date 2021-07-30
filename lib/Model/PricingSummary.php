@@ -45,7 +45,7 @@ use \Ebay\Sell\Fulfillment\ObjectSerializer;
  */
 class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 {
-    public const DISCRIMINATOR = null;
+    const DISCRIMINATOR = null;
 
     /**
       * The original name of the model.
@@ -214,14 +214,14 @@ class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['adjustment'] = $data['adjustment'] ?? null;
-        $this->container['delivery_cost'] = $data['delivery_cost'] ?? null;
-        $this->container['delivery_discount'] = $data['delivery_discount'] ?? null;
-        $this->container['fee'] = $data['fee'] ?? null;
-        $this->container['price_discount_subtotal'] = $data['price_discount_subtotal'] ?? null;
-        $this->container['price_subtotal'] = $data['price_subtotal'] ?? null;
-        $this->container['tax'] = $data['tax'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
+        $this->container['adjustment'] = isset($data['adjustment']) ? $data['adjustment'] : null;
+        $this->container['delivery_cost'] = isset($data['delivery_cost']) ? $data['delivery_cost'] : null;
+        $this->container['delivery_discount'] = isset($data['delivery_discount']) ? $data['delivery_discount'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['price_discount_subtotal'] = isset($data['price_discount_subtotal']) ? $data['price_discount_subtotal'] : null;
+        $this->container['price_subtotal'] = isset($data['price_subtotal']) ? $data['price_subtotal'] : null;
+        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
     }
 
     /**
@@ -460,7 +460,7 @@ class PricingSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
