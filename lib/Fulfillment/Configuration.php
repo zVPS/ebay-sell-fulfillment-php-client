@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Ebay\Sell;
+namespace Ebay\Sell\Fulfillment;
 
 /**
  * Configuration Class Doc Comment
